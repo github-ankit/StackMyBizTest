@@ -7,6 +7,7 @@
     <string name="password_field_placeholder">Password</string>
     <string name="forgot_password_placeholder">Forgot password?</string>
     <string name="log_in_buton_text">Log In</string>
+    <string name="google_buton_text">SignIn with Google</string>
     <string name="not_available">Photo Not Available</string>
 
 

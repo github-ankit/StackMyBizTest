@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "161121441935",
+    "project_id": "stackmybiztest",
+    "storage_bucket": "stackmybiztest.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:161121441935:android:2206cbcd951bffdf6138fa",
+        "android_client_info": {
+          "package_name": "com.liveup.stackmybiztest"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "161121441935-glf65v8ceonffckpkqe6j39r0dku3qqq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBbwbIUib5PI4cuKbZpSL-fhPYlCTrwGDY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "161121441935-glf65v8ceonffckpkqe6j39r0dku3qqq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

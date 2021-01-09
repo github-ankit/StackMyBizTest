@@ -84,5 +84,16 @@
         android:text="@string/log_in_buton_text"
         android:textColor="@android:color/white" />
 
+        <Button
+            android:id="@+id/gSignInButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:background="@drawable/rectangle_filled_color"
+            android:text="@string/google_buton_text"
+            android:textColor="@android:color/white" />
+
+
+
     </LinearLayout>
 </ScrollView>

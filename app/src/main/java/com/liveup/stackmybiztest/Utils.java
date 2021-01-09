@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.text.TextUtils;
@@ -13,6 +14,8 @@ import android.widget.Toast;
 
 
 public class Utils {
+
+
 
     public static void showToast(Context context, String message) {
 
@@ -45,6 +48,8 @@ public class Utils {
 
     }
 
+
+
     /**
      * Show A Dialog with button to refresh the internet state.
      */
@@ -71,6 +76,9 @@ public class Utils {
 
 
     }
+
+
+
 
 
 }
