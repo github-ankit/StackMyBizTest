@@ -8,10 +8,10 @@ This application provides User login/register via google's account. Here we have
 
 
 Login Screen
-<img src="https://github.com/github-ankit/StackMyBizTest/blob/main/app/src/main/res/drawable/screenshot_a.jpg" width="200" height="500">
+<img src="https://github.com/github-ankit/StackMyBizTest/blob/main/app/src/main/res/drawable/screenshot_a.jpg" width="200" height="450">
 
 Profile Screen
-<img src="https://github.com/github-ankit/StackMyBizTest/blob/main/app/src/main/res/drawable/screenshot_b.jpg" width="200" height="500">
+<img src="https://github.com/github-ankit/StackMyBizTest/blob/main/app/src/main/res/drawable/screenshot_b.jpg" width="200" height="450">
 
 This application also stores users's login and logout events into Firebase database.
 
