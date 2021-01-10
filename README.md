@@ -19,9 +19,74 @@ Here, Google Sigin and adding the login event to firebase database also have bee
 
 After succesfull login, login event is saved in firebase database :
 
+```json
 {
-  "User" : "ankit.4uv@gmail.com / Login Time - Sunday, January 10, 2021 "
+  "LocationUpdates" : {
+    "1610354492" : {
+      "email" : "ankit.4uv@gmail.com",
+      "name" : "Ankit Singh",
+      "userLat" : "23.6894532",
+      "userLong" : "85.3137833"
+    },
+    "1610354494" : {
+      "email" : "ankit.4uv@gmail.com",
+      "name" : "Ankit Singh",
+      "userLat" : "23.686355",
+      "userLong" : "85.3181917"
+    },
+    "1610354500" : {
+      "email" : "ankit.4uv@gmail.com",
+      "name" : "Ankit Singh",
+      "userLat" : "23.6861747",
+      "userLong" : "85.3180557"
+    },
+    "1610354523" : {
+      "email" : "mailmeankit26@gmail.com",
+      "name" : "ankit kumar",
+      "userLat" : "23.6861333",
+      "userLong" : "85.31802"
+    },
+    "1610354528" : {
+      "email" : "mailmeankit26@gmail.com",
+      "name" : "ankit kumar",
+      "userLat" : "23.686115",
+      "userLong" : "85.3179918"
+    },
+    "1610354533" : {
+      "email" : "mailmeankit26@gmail.com",
+      "name" : "ankit kumar",
+      "userLat" : "23.6861108",
+      "userLong" : "85.3179877"
+    }
+  },
+  "LoginEvents" : {
+    "1610354488" : {
+      "date" : "Mon,11 Jan, 2021 @ 14:11 PM",
+      "email" : "Ankit Singh",
+      "name" : "ankit.4uv@gmail.com",
+      "status" : "Online"
+    },
+    "1610354504" : {
+      "date" : "Mon,11 Jan, 2021 @ 14:11 PM",
+      "email" : "Ankit Singh",
+      "name" : "ankit.4uv@gmail.com",
+      "status" : "Offline"
+    },
+    "1610354522" : {
+      "date" : "Mon,11 Jan, 2021 @ 14:12 PM",
+      "email" : "ankit kumar",
+      "name" : "mailmeankit26@gmail.com",
+      "status" : "Online"
+    },
+    "1610354535" : {
+      "date" : "Mon,11 Jan, 2021 @ 14:12 PM",
+      "email" : "ankit kumar",
+      "name" : "mailmeankit26@gmail.com",
+      "status" : "Offline"
+    }
+  }
 }
+```
 
 We can also fetch the stored data when required.
 
