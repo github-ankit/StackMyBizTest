@@ -15,6 +15,7 @@ import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
@@ -27,15 +28,23 @@ import com.google.android.gms.common.GoogleApiAvailability;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.liveup.stackmybiztest.databinding.ActivityUserProfileBinding;
 import com.squareup.picasso.Picasso;
+
+import java.util.Date;
 
 public class UserProfileActivity extends AppCompatActivity {
 
 
     private static final int REQUEST_PERMISSIONS_REQUEST_CODE = 34;
     boolean mNeverAskPermission = false;
+    String mEmailId, mName;
 
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
+    DatabaseReference locationUpdatesRef = database.getReference(Constants.LOCATIONUPDATES);
+    DatabaseReference loginEventsRef = database.getReference(Constants.LOGINEVENT);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,8 +57,11 @@ public class UserProfileActivity extends AppCompatActivity {
         SharedPreferences localSharedPreferences = this.getSharedPreferences("UserDetails", 0);
 
         try {
-            binding.profileName.setText(localSharedPreferences.getString(Constants.USERNAME, ""));
-            binding.userEmail.setText(localSharedPreferences.getString(Constants.USEREMAIL, ""));
+
+            mEmailId = localSharedPreferences.getString(Constants.USEREMAIL,"");
+            mName =  localSharedPreferences.getString(Constants.USERNAME, "");
+            binding.profileName.setText(mName);
+            binding.userEmail.setText(mEmailId);
 
             binding.ImageNotFoundTV.setVisibility(View.GONE);
             Picasso.get().load(localSharedPreferences.getString(Constants.USERPIC, "")).into(binding.profileIV);
@@ -110,6 +122,12 @@ public class UserProfileActivity extends AppCompatActivity {
             String longitude = intent.getStringExtra(LocationMonitoringService.EXTRA_LONGITUDE);
 
             Utils.showToast(UserProfileActivity.this, latitude + " - " + longitude);
+
+            UserHelperClass userHelperClass = new UserHelperClass(mEmailId, mName, latitude,longitude);
+
+            Long tsLong = System.currentTimeMillis()/1000;
+            String ts = tsLong.toString();
+            locationUpdatesRef.child(ts).setValue(userHelperClass);
             Log.d("TAG- Getting location", latitude + " - " + longitude);
 
 
@@ -137,7 +155,19 @@ public class UserProfileActivity extends AppCompatActivity {
                 });
 
 
-        // Unregestring the broadcast receiver and stoping the service
+        Date d = new Date();
+        CharSequence timeOfLogout  = DateFormat.format("EEE,d MMM, yyyy @ HH:mm aaa", d.getTime());
+
+        UserHelperClass userHelperClass = new UserHelperClass(Constants.OFFLINE,
+                mName,
+                mEmailId,
+                timeOfLogout);
+
+        Long tsLong = System.currentTimeMillis()/1000;
+        String ts = tsLong.toString();
+        loginEventsRef.child(ts).setValue(userHelperClass);
+
+        // Unregestring the broadcast receiver and stopping the service
         LocalBroadcastManager.getInstance(this).unregisterReceiver(broadcastReceiver);
         Intent intent = new Intent(this, LocationMonitoringService.class);
         stopService(intent);

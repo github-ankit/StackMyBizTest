@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@drawable/back"
     tools:context=".LoginActivity">
 
 
@@ -12,7 +12,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@android:color/white"
+        android:background="@android:color/transparent"
         android:orientation="vertical"
         android:padding="10dp"
         android:layout_gravity="center">
@@ -29,6 +29,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:layout_marginLeft="5dp"
+        android:textColor="@color/black"
         android:text="@string/login"
         android:textSize="25sp" />
 
@@ -71,7 +72,7 @@
         android:layout_marginTop="15dp"
         android:gravity="end"
         android:text="@string/forgot_password_placeholder"
-        android:textColor="@android:color/darker_gray"
+        android:textColor="@android:color/black"
         android:textSize="15sp" />
 
 
@@ -82,7 +83,7 @@
         android:layout_marginTop="25dp"
         android:background="@drawable/rectangle_filled_color"
         android:text="@string/log_in_buton_text"
-        android:textColor="@android:color/white" />
+        android:textColor="@android:color/black" />
 
         <Button
             android:id="@+id/gSignInButton"
@@ -91,7 +92,7 @@
             android:layout_marginTop="25dp"
             android:background="@drawable/rectangle_filled_color"
             android:text="@string/google_buton_text"
-            android:textColor="@android:color/white" />
+            android:textColor="@android:color/black" />
 
 
 

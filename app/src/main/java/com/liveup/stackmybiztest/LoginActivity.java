@@ -19,7 +19,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.liveup.stackmybiztest.databinding.ActivityLoginBinding;
 
-import java.sql.Time;
 import java.util.Date;
 
 public class LoginActivity extends AppCompatActivity {
@@ -29,7 +28,7 @@ public class LoginActivity extends AppCompatActivity {
     private GoogleSignInClient mGoogleSignInClient;
 
     FirebaseDatabase database = FirebaseDatabase.getInstance();
-    DatabaseReference myRef = database.getReference("Users");
+    DatabaseReference loginEventsRef = database.getReference(Constants.LOGINEVENT);
 
 
     @Override
@@ -123,10 +122,21 @@ public class LoginActivity extends AppCompatActivity {
             localEditor.apply();
 
             Date d = new Date();
-            CharSequence s  = DateFormat.format("EEEE, MMMM d, yyyy ", d.getTime());
+            CharSequence timeOfLogin  = DateFormat.format("EEE,d MMM, yyyy @ HH:mm aaa", d.getTime());
+
+            UserHelperClass userHelperClass = new UserHelperClass(Constants.ONLINE,
+                    account.getDisplayName(),
+                    account.getEmail(),
+                    timeOfLogin);
+
+            Long tsLong = System.currentTimeMillis()/1000;
+            String ts = tsLong.toString();
+
+            //LoginEventsRef.push().setValue(userHelperClass);
+            loginEventsRef.child(ts).setValue(userHelperClass);
 
 
-            myRef.child("User").setValue(account.getEmail()+"Login Time - "+ s );
+
 
             startActivity(new Intent(LoginActivity.this, UserProfileActivity.class));
         }
