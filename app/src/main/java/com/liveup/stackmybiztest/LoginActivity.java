@@ -1,7 +1,6 @@
 package com.liveup.stackmybiztest;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -83,6 +82,7 @@ public class LoginActivity extends AppCompatActivity {
         createRequest();
 
 
+
     }
 
     private void createRequest() {
@@ -120,16 +120,13 @@ public class LoginActivity extends AppCompatActivity {
             localEditor.putString(Constants.USEREMAIL, account.getEmail());
             localEditor.putString(Constants.USERPIC, account.getPhotoUrl().toString());
 
-            localEditor.commit();
+            localEditor.apply();
 
             Date d = new Date();
             CharSequence s  = DateFormat.format("EEEE, MMMM d, yyyy ", d.getTime());
 
 
             myRef.child("User").setValue(account.getEmail()+"Login Time - "+ s );
-
-
-
 
             startActivity(new Intent(LoginActivity.this, UserProfileActivity.class));
         }
@@ -195,6 +192,15 @@ public class LoginActivity extends AppCompatActivity {
 
         }
     }
+
+
+
+
+
+
+
+
+
 
 
 }
