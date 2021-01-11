@@ -8,16 +8,16 @@ This application provides User login/register via google's account. Here we have
 
 
 Login Screen
-<img src="https://github.com/github-ankit/StackMyBizTest/blob/main/app/src/main/res/drawable/screenshot_a.jpg" width="200" height="450">
+<img src="https://github.com/github-ankit/StackMyBizTest/blob/main/app/src/main/res/drawable/screenshot_aa.jpg" width="200" height="400">
 
 Profile Screen
-<img src="https://github.com/github-ankit/StackMyBizTest/blob/main/app/src/main/res/drawable/screenshot_b.jpg" width="200" height="450">
+<img src="https://github.com/github-ankit/StackMyBizTest/blob/main/app/src/main/res/drawable/screenshot_bb.jpg" width="200" height="400">
 
 This application also stores users's login and logout events into Firebase database.
 
 Here, Google Sigin and adding the login event to firebase database also have been added.
 
-After succesfull login, login event is saved in firebase database :
+After succesfull login, login event is saved in firebase database, Here we are storing users location when user logs in and updating the location every 5 sec till user is logs out :
 
 ```json
 {
